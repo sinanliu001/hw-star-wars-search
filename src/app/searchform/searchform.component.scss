@@ -1,0 +1,35 @@
+.table {
+  width: 100%;
+  border: 1px solid grey;
+  > tr td {
+    border: 1px solid grey;
+  }
+}
+
+.search_container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.result_container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+  > div {
+    width: 200px;
+  }
+}
+
+.message_container {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination_container {
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+}

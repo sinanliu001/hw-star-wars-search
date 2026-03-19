@@ -1,0 +1,33 @@
+<form [ngClass]="'search_container'" (submit)="search($event)">
+  <input [formControl]="inputStates" placeholder="Please Enter Name" />
+  <button type="submit" [disabled]="isLoading">Search</button>
+</form>
+<div *ngIf="isLoading" [ngClass]="'message_container'">
+  Searching...Please Wait...
+</div>
+<div *ngIf="nextPage || previousPage" [ngClass]="'pagination_container'">
+  <button
+    [disabled]="!previousPage || isLoading"
+    (click)="onPageChange(previousPage)"
+  >
+    Previous
+  </button>
+  <button [disabled]="!nextPage || isLoading" (click)="onPageChange(nextPage)">
+    Next
+  </button>
+</div>
+<div [ngClass]="'result_container'" *ngIf="!isLoading">
+  <div *ngFor="let char of chars">
+    <p>Name: {{ char.name }}</p>
+    <table [ngClass]="'table'">
+      <tr>
+        <td>Film Name</td>
+        <td>Year</td>
+      </tr>
+      <tr *ngFor="let film of char.filmData">
+        <td>{{ film.title }}</td>
+        <td>{{ film.created | date }}</td>
+      </tr>
+    </table>
+  </div>
+</div>
